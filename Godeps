@@ -5,6 +5,9 @@ github.com/amir/raidman 53c1b967405155bfc8758557863bf2e14f814687
 github.com/aws/aws-sdk-go 13a12060f716145019378a10e2806c174356b857
 github.com/beorn7/perks 3ac7bf7a47d159a033b107610db8a1b6575507a4
 github.com/cenkalti/backoff 4dc77674aceaabba2c7e3da25d4c823edfb73f99
+github.com/coreos/etcd 61064a7be383053811e1535829a7b500feb7ef8f
+github.com/coreos/go-systemd 7c9533367ef925dc1078d75e5b7141e10da2c4e8
+github.com/coreos/pkg 447b7ec906e523386d9c53be15b55a8ae86ea944
 github.com/couchbase/go-couchbase cb664315a324d87d19c879d9cc67fda6be8c2ac1
 github.com/couchbase/gomemcached a5ea6356f648fec6ab89add00edd09151455b4b2
 github.com/couchbase/goutils 5823a0cbaaa9008406021dc5daf80125ea30bba6
@@ -51,6 +54,7 @@ github.com/shirou/gopsutil 1516eb9ddc5e61ba58874047a98f8b44b5e585e8
 github.com/soniah/gosnmp 3fe3beb30fa9700988893c56a63b1df8e1b68c26
 github.com/streadway/amqp b4f3ceab0337f013208d31348b578d83c0064744
 github.com/stretchr/testify 1f4a1643a57e798696635ea4c126e9127adb7d3c
+github.com/ugorji/go 9c7f9b7a2bc3a520f7c7b30b34b7f85f47fe27b6
 github.com/vjeantet/grok 83bfdfdfd1a8146795b28e547a8e3c8b28a466c2
 github.com/wvanbergen/kafka 46f9a1cf3f670edec492029fadded9c2d9e18866
 github.com/wvanbergen/kazoo-go 0f768712ae6f76454f987c3356177e138df258f8
