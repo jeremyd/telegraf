@@ -96,7 +96,7 @@ func (e *Etcd2) Gather(acc telegraf.Accumulator) error {
 			isHealthy = 0
 		} else {
 			keysAPI := client.NewKeysAPI(cli)
-			ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
+			ctx, cancel := context.WithTimeout(context.TODO(), 20*time.Second)
 			defer cancel()
 			_, err := keysAPI.Set(ctx, "/telegrafetcd", "telegrafetcd", nil)
 			if err != nil {
