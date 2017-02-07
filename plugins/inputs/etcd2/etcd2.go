@@ -82,8 +82,8 @@ func (e *Etcd2) Gather(acc telegraf.Accumulator) error {
 	}
 	mi := client.NewMembersAPI(*e.client)
 	memberContext, memberCancel := context.WithTimeout(context.TODO(), 20*time.Second)
-	ms, err := mi.List(memberContext)
 	defer memberCancel()
+	ms, err := mi.List(memberContext)
 	if err != nil {
 		return err
 	}
