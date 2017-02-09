@@ -17,7 +17,6 @@ type Etcd2 struct {
 	SSLCertFile string `toml:"ssl_cert_file"`
 	SSLKeyFile  string `toml:"ssl_key_file"`
 	Cluster     string `toml:"cluster"`
-	client      *client.Client
 }
 
 var sampleConfig = `
@@ -71,16 +70,13 @@ func (e *Etcd2) connectTo(endpoints []string) (client.Client, error) {
 func (e *Etcd2) Gather(acc telegraf.Accumulator) error {
 	record := make(map[string]interface{})
 	tags := make(map[string]string)
-	if e.client == nil {
-		cln, clientErr := e.connectTo(e.Urls)
+	cln, clientErr := e.connectTo(e.Urls)
 
-		if clientErr != nil {
-			return clientErr
-		}
-
-		e.client = &cln
+	if clientErr != nil {
+		return clientErr
 	}
-	mi := client.NewMembersAPI(*e.client)
+
+	mi := client.NewMembersAPI(cln)
 	memberContext, memberCancel := context.WithTimeout(context.TODO(), 20*time.Second)
 	defer memberCancel()
 	ms, err := mi.List(memberContext)
