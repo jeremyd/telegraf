@@ -77,9 +77,7 @@ func (e *Etcd2) Gather(acc telegraf.Accumulator) error {
 	}
 
 	mi := client.NewMembersAPI(cln)
-	memberContext, memberCancel := context.WithTimeout(context.TODO(), 20*time.Second)
-	defer memberCancel()
-	ms, err := mi.List(memberContext)
+	ms, err := mi.List(context.TODO())
 	if err != nil {
 		return err
 	}
@@ -94,9 +92,7 @@ func (e *Etcd2) Gather(acc telegraf.Accumulator) error {
 			isHealthy = 0
 		} else {
 			keysAPI := client.NewKeysAPI(cli)
-			ctx, cancel := context.WithTimeout(context.TODO(), 20*time.Second)
-			defer cancel()
-			_, err := keysAPI.Set(ctx, "/telegrafetcd", "telegrafetcd", nil)
+			_, err := keysAPI.Set(context.TODO(), "/telegrafetcd", "telegrafetcd", nil)
 			if err != nil {
 				isHealthy = 0
 			} else {
